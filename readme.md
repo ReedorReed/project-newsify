@@ -1,63 +1,110 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/BviIeZWX)
-## Opgavebeskrivelse - Newsify
-I dette projekt skal I udvikle en nyheds-webapplikation som er optimeret til den mobile skærm. I applikationen skal der listes nyheder fra [The New York Times](https://developer.nytimes.com/apis) i et kategoriseret nyhedsoverblik. Det skal være muligt at vælge (klikke på) en nyhed i listen, hvorefter brugeren vil blive sendt videre til den fulde artikel på nytimes.com.<br><br>
-Nyhedsartikler skal også kunne gemmes i et privat nyhedsarkiv. Gem funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png "swipe illustration")) på en nyhed. Fra det private nyhedsarkiv kan ligeledes tilgås artikler og artikler kan slettes. Slet funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png "swipe illustration")) på en arkiveret nyhed.<br><br>
-Fra settings panelet skal brugeren have mulighed for at administrere det kategoriserede nyhedsoverblik ved at slå visning til eller fra for nyhedskategorier. Fra settings panelet skal brugeren også kunne skifte mellem lyst og mørkt tema.
-<br>
+# Newsify
 
-### **Målet med opgaven er:**
-* At arbejde med automatisering i din udviklingsproces.
-* At arbejde med modularisering af css. 
-* At arbejde med lagring af indstillinger og data.
-* At optimere brugeroplevelsen gennem microinteractions og animationer.
+Newsify is a mobile-first news application built with React. The app fetches news articles from the New York Times API and allows users to browse different news categories, save interesting articles, and manage their own archive.
 
-## Applikations tech stack
+The project was created as part of my Web Developer education and focuses on working with APIs, React components, state management, routing, and responsive UI development.
 
-* HTML (structure)<br>
-* JavaScript (logic / data collection)<br>
-* Vite (build system)<br>
-* Sass (css preprocessor)<br>
-* Vitest (testing)
-* GitHub / Netlify (host)<br>
+## Features
 
-## Krav til opgaven
+- Browse news from the New York Times
+- Choose between different news categories
+- Swipe to save or remove articles
+- View saved articles in an archive
+- Customize which news categories are displayed
+- Light and dark theme
+- Mobile-first responsive design
 
-### **User Interface:**
-Se Figma-fil (og billeder) i mappen projekt-UI.
+## Technologies
 
-1. **Automatisering**<br>
-    Din udviklingsproces skal automatiseres med Vite. Du skal opsætte tasks til at flytte og behandle de filer du udvikler til en "dist"-mappe i din udviklingsproces.
-    * Oretter/flytter html filer.
-    * behandler og sammenskriver sass-filer til en samlet css fil.
-    * behandler javascript filer, og sammenskriver dem til én fil.
-    * øvrige processer tilføjes efter behov.
-   
-1. **Animationer**<br>
-   En nyhedskategori kan være "åben", så de relaterede artikler fremgår af en liste herunder. En nyhedskategori kan også være    "lukket", sådan at det kun er nyhedskategorien som fremgår af listen men ikke de relaterede artiker. Det er din opgave at animere overgangen mellem "åben" / "lukket" tilstand på en lækker måde.
- 
-   I settingspanelt kan man "tænde og slukke" for nyhedskategorier. Det er din opgave at animere "kontakternes/switches" overgang fra "tændt" til "slukket".
- 
-1. **Funktioner**<br>
-   I settings-panelet skal brugeren have mulighed for at administrere det kategoriserede nyhedsoverblik ved at slå visning til og fra på udvalgte nyhedskategorier. Det skal også være muligt at skifte mellem lyst og mørkt tema fra settings panelt    og applikationen skal "huske" indstillingerne. 
-   
-   Nyhedsartikler skal også kunne gemmes i et privat nyhedsarkiv. Gem funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png   "swipe illustration")) på en nyhed. Fra det private nyhedsarkiv kan ligeledes tilgås artikler og artikler kan slettes. Slet    funktionen bliver synlig når der swipes til venstre ([se illustration](./assets/swipe-illustration.png "swipe illustration")) på en arkiveret nyhed.<br>
+- React
+- JavaScript
+- Vite
+- CSS / SCSS
+- New York Times API
+- React Router
+- Git & GitHub
 
-1. **Testing med Vitest**<br>
-   Din applikation skal testes med Vitest. Du skal opsætte og skrive tests for at sikre, at din kode fungerer som forventet. Testene skal dække både funktionalitet og edge cases.
+## Getting Started
 
-1. **Deploy via GitHub Pages eller Netlify**<br>
-   Din webapplikation skal udgives på GitHub Pages eller Netlify.
+Clone the repository:
 
-## Nice to have opgaver
-Husk at 'nice-to-have' opgaverne **ikke** er valgfrie opgaver! Det forventes at I begynder at udvikle nedenstående features, når I er færdige med de oblikatoriske opgaver. Husk også at jo flere features I har med i projektet, jo federe er det at vise frem i sit portfolio.
+```bash
+git clone <repository-url>
+```
 
-1. Tilføj Swipe-down to refresh på nyhedsliste:
-    ([se illustration](./assets/pull-to-refresh-823x1024.png "swipe-down"))
-1. Feature tutorial første gang webapplikationen bruges: ([se illustration](./assets/tutorial.png "tutorial"))
-1. Gør det muligt at redigere rækkefølgen på kategorier i settings. Rækkefølgen skal have indflydelse på den rækkefølge kategorierne listes i nyhedslisten.
+Navigate to the project:
 
-## Evaluering
-Jeres projekter vil blive testet på en telefon, så det er vigtigt at I også tester på jeres egne telefoner, og ikke udelukkende tester i browserens emulator.
+```bash
+cd project-newsify
+```
 
-### **Projektdokumentation**
-I filen der hedder [projektdokumentation.md](./projektdokumentation.md) skal I dokumentere jeres projekt og de værktøjer I bruger, samt jeres proces.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Environment Variables
+
+The project uses the New York Times API.
+
+Create a `.env` file in the root of the project and add your API key:
+
+```env
+VITE_NYT_API_KEY=your_api_key_here
+```
+
+You can get an API key from the New York Times Developer Portal.
+
+> Never commit your API key to GitHub.
+
+## Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+├── pages/
+├── App.jsx
+└── main.jsx
+```
+
+The application is divided into reusable components and separate pages to keep the project easier to maintain and develop.
+
+## What I Learned
+
+During this project I worked with:
+
+- Fetching and displaying data from an external API
+- Managing state in React
+- Passing data between components
+- Creating reusable React components
+- Working with React Router
+- Implementing user interactions such as saving and removing articles
+- Building a responsive mobile-first interface
+- Implementing light and dark themes
+- Structuring a larger React application
+
+## Future Improvements
+
+Possible improvements include:
+
+- Better loading and error states
+- Search functionality
+- More filtering options
+- Improved animations and swipe interactions
+- Persisting user preferences and saved articles
+- Improved accessibility
+- More comprehensive testing
+
+## Author
+
+**Christian Reed**
+
+Web Developer student at Roskilde Tekniske Skole.
