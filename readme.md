@@ -1,8 +1,10 @@
 # Newsify
 
-Newsify is a mobile-first news application built with React. The app fetches news articles from the New York Times API and allows users to browse different news categories, save interesting articles, and manage their own archive.
+Newsify is a mobile-first news application built with React. It uses the New York Times API to let users browse news, choose categories and save articles to a personal archive.
 
-The project was created as part of my Web Developer education and focuses on working with APIs, React components, state management, routing, and responsive UI development.
+[View the live application](https://reeds-newsify.netlify.app/)
+
+Created during my Web Developer education, this project is included in my portfolio because it demonstrates frontend application design beyond a simple API fetch: shared state, custom hooks, persistence, routing and touch-first interaction.
 
 ## Features
 
@@ -12,6 +14,8 @@ The project was created as part of my Web Developer education and focuses on wor
 - View saved articles in an archive
 - Customize which news categories are displayed
 - Light and dark theme
+- Cache API responses and persist saved articles in the browser
+- Onboarding flow for first-time users
 - Mobile-first responsive design
 
 ## Technologies
@@ -19,10 +23,12 @@ The project was created as part of my Web Developer education and focuses on wor
 - React
 - JavaScript
 - Vite
-- CSS / SCSS
+- Sass with BEM-style component organisation
 - New York Times API
 - React Router
-- Git & GitHub
+- React Context and a custom `useFetch` hook
+- React Swipeable
+- Vitest and Testing Library
 
 ## Getting Started
 
@@ -77,19 +83,12 @@ src/
 
 The application is divided into reusable components and separate pages to keep the project easier to maintain and develop.
 
-## What I Learned
+## Architecture choices
 
-During this project I worked with:
-
-- Fetching and displaying data from an external API
-- Managing state in React
-- Passing data between components
-- Creating reusable React components
-- Working with React Router
-- Implementing user interactions such as saving and removing articles
-- Building a responsive mobile-first interface
-- Implementing light and dark themes
-- Structuring a larger React application
+- `CategoryContext` and `ArchiveContext` hold state that is shared across routes without prop drilling.
+- The reusable `useFetch` hook handles loading, errors and a time-limited browser cache for API requests.
+- Saved articles and cached responses are stored in `localStorage`, so the experience persists between visits.
+- Components own their Sass files, keeping visual concerns close to the interface they support.
 
 ## Future Improvements
 
@@ -105,6 +104,4 @@ Possible improvements include:
 
 ## Author
 
-**Christian Reed**
-
-Web Developer student at Roskilde Tekniske Skole.
+**Christian Reed** — Web Developer
