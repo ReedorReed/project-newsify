@@ -1,107 +1,116 @@
 # Newsify
 
-Newsify is a mobile-first news application built with React. It uses the New York Times API to let users browse news, choose categories and save articles to a personal archive.
+Newsify is a mobile-first news application built with React and the New York Times API. Users can browse stories by category, customize their feed, swipe through articles and save stories to a personal archive.
 
 [View the live application](https://reeds-newsify.netlify.app/)
 
-Created during my Web Developer education, this project is included in my portfolio because it demonstrates frontend application design beyond a simple API fetch: shared state, custom hooks, persistence, routing and touch-first interaction.
+This project was developed during my Web Developer education and is included in my portfolio because it demonstrates more than a simple API fetch: it combines reusable data-fetching logic, shared state, persistence, routing, testing and touch-first interaction.
 
 ## Features
 
-- Browse news from the New York Times
-- Choose between different news categories
-- Swipe to save or remove articles
-- View saved articles in an archive
-- Customize which news categories are displayed
+- Browse news from the New York Times API
+- Enable or disable news categories
+- Swipe through articles with touch-friendly interactions
+- Save and remove articles from a personal archive
+- Persist onboarding state and other preferences in the browser
 - Light and dark theme
-- Cache API responses and persist saved articles in the browser
-- Onboarding flow for first-time users
-- Mobile-first responsive design
+- Mobile-first responsive interface
+- Client-side routing between application views
+- Reusable API-fetching logic with loading, error and cache handling
 
-## Technologies
+## What this project demonstrates
+
+Newsify separates shared application state from page-level UI concerns. `CategoryContext` and `ArchiveContext` provide state across routes without prop drilling, while the custom `useFetch` hook centralizes API requests, loading states, errors and a time-limited browser cache.
+
+The project also explores mobile interaction patterns through swipe gestures and keeps relevant client-side state in `localStorage` so parts of the experience persist between visits.
+
+## Tech stack
 
 - React
 - JavaScript
 - Vite
-- Sass with BEM-style component organisation
-- New York Times API
+- Sass
 - React Router
-- React Context and a custom `useFetch` hook
+- React Context
 - React Swipeable
-- Vitest and Testing Library
+- Vitest
+- New York Times API
+- Netlify
 
-## Getting Started
+## Architecture highlights
 
-Clone the repository:
+- **Shared state:** `CategoryContext` and `ArchiveContext`
+- **Reusable data fetching:** custom `useFetch` hook
+- **Persistence:** browser `localStorage`
+- **Routing:** React Router
+- **Interaction:** swipe gestures with React Swipeable
+- **Styling:** component-oriented Sass
+- **Testing:** Vitest, with existing component test coverage
+
+## Run locally
+
+### Prerequisites
+
+- Node.js
+- A New York Times API key
 
 ```bash
-git clone <repository-url>
-```
-
-Navigate to the project:
-
-```bash
+git clone https://github.com/ReedorReed/project-newsify.git
 cd project-newsify
-```
-
-Install dependencies:
-
-```bash
 npm install
 ```
 
-Start the development server:
+Create a `.env` file in the project root:
+
+```env
+VITE_API_KEY=your_new_york_times_api_key
+```
+
+Then start the development server:
 
 ```bash
 npm run dev
 ```
 
-## Environment Variables
+## Available commands
 
-The project uses the New York Times API.
-
-Create a `.env` file in the root of the project and add your API key:
-
-```env
-VITE_NYT_API_KEY=your_api_key_here
+```bash
+npm run dev      # Start the Vite development server
+npm run build    # Create a production build
+npm run lint     # Run ESLint
+npm run preview  # Preview the production build
 ```
 
-You can get an API key from the New York Times Developer Portal.
-
-> Never commit your API key to GitHub.
-
-## Project Structure
+## Project structure
 
 ```text
 src/
 ├── assets/
 ├── components/
+├── context/
 ├── pages/
+├── style/
 ├── App.jsx
 └── main.jsx
 ```
 
-The application is divided into reusable components and separate pages to keep the project easier to maintain and develop.
+## Further development
 
-## Architecture choices
+Areas I would improve next include:
 
-- `CategoryContext` and `ArchiveContext` hold state that is shared across routes without prop drilling.
-- The reusable `useFetch` hook handles loading, errors and a time-limited browser cache for API requests.
-- Saved articles and cached responses are stored in `localStorage`, so the experience persists between visits.
-- Components own their Sass files, keeping visual concerns close to the interface they support.
-
-## Future Improvements
-
-Possible improvements include:
-
-- Better loading and error states
-- Search functionality
-- More filtering options
-- Improved animations and swipe interactions
-- Persisting user preferences and saved articles
+- More comprehensive automated testing
+- Stronger loading and error states
 - Improved accessibility
-- More comprehensive testing
+- Search and additional filtering
+- Further refinement of animations and swipe interactions
+
+## Documentation
+
+The repository also contains [technical project documentation](./documentation.md) describing implementation choices made during development.
 
 ## Author
 
 **Christian Reed** — Web Developer
+
+- [Portfolio](https://www.reed.dk/)
+- [GitHub](https://github.com/ReedorReed)
